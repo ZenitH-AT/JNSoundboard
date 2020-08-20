@@ -84,7 +84,7 @@ namespace JNSoundboard
             if (cbAddToList.Checked)
             {
                 //add to list
-                if (!Helper.keysArrayFromString(tbKeys.Text, out Keys[] keysArray, out _)) keysArray = new Keys[] { };
+                if (!Helper.stringToKeysArray(tbKeys.Text, out Keyboard.Keys[] keysArray, out _)) keysArray = new Keyboard.Keys[] { };
 
                 string windowText = (cbWindows.SelectedIndex > 0) ? cbWindows.Text : "";
 

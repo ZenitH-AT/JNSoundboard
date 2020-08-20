@@ -48,102 +48,146 @@ namespace JNSoundboard
             else return null;
         }
 
-        internal static string[] keysArrayToStringArray(Keys[] keysArr)
+        internal static bool stringToKey(string keyString, out Keyboard.Keys key)
         {
-            var arr = new List<string>();
-
-            for (int i = 0; i < keysArr.Length; i++)
+            if (keyString.Contains("VK_"))
             {
-                arr.Add(keysArr[i].ToString());
-            }
+                //key has no name
+                keyString = keyString.Substring(keyString.LastIndexOf('_') + 1);
 
-            return arr.ToArray();
-        }
-
-        internal static Keys[] stringArrayToKeysArray(string[] stringArray)
-        {
-            if (stringArray == null) return new Keys[] { 0 };
-            var arr = new List<Keys>();
-
-            for (int i = 0; i < stringArray.Length; i++)
-            {
-                Keys key;
-
-                if (Enum.TryParse(stringArray[i], out key))
+                try
                 {
-                    arr.Add(key);
+                    key = (Keyboard.Keys)int.Parse(keyString, System.Globalization.NumberStyles.HexNumber);
+
+                    return true;
                 }
-                else
+                catch
                 {
-                    return new Keys[] { 0 };
+                    key = 0;
+
+                    return false;
                 }
             }
-
-            return arr.ToArray();
-        }
-
-        internal static bool keysArrayFromString(string key, out Keys[] keysArr, out string errorMessage)
-        {
-            if (key.Contains("+"))
+            else if (Enum.TryParse(keyString, out key))
             {
-                string[] sKeys = key.Split('+');
-                var kKeys = new List<Keys>();
-
-                for (int i = 0; i < sKeys.Length; i++)
-                {
-                    Keys kKey;
-
-                    if (Enum.TryParse(sKeys[i], out kKey))
-                    {
-                        kKeys.Add(kKey);
-                    }
-                    else
-                    {
-                        errorMessage = "Key string \"" + sKeys[i] + "\" doesn't exist";
-                        keysArr = null;
-                        return false;
-                    }
-                }
-
-                keysArr = kKeys.ToArray();
-                errorMessage = "";
                 return true;
             }
             else
             {
-                Keys kKey;
+                return false;
+            }
+        }
 
-                if (Enum.TryParse(key, out kKey))
+        internal static string keysArrayToString(Keyboard.Keys[] keysArray)
+        {
+            if (keysArray == null) return "";
+
+            string keysString = "";
+
+            int i = 0;
+
+            foreach (Keyboard.Keys key in keysArray)
+            {
+                keysString += key.ToString() + (i++ == keysArray.Length - 1 ? "" : "+");
+            }
+
+            return keysString;
+        }
+
+        internal static string[] keysArrayToStringArray(Keyboard.Keys[] keysArray)
+        {
+            var keysList = new List<string>();
+
+            foreach (Keyboard.Keys key in keysArray)
+            {
+                keysList.Add(key.ToString());
+            }
+
+            return keysList.ToArray();
+        }
+
+        internal static bool stringToKeysArray(string keysString, out Keyboard.Keys[] keysArray, out string errorMessage)
+        {
+            errorMessage = "";
+
+            if (keysString.Contains("+"))
+            {
+                string[] stringArray = keysString.Split('+');
+                var keysList = new List<Keyboard.Keys>();
+
+                foreach (string keyString in stringArray)
                 {
-                    keysArr = new Keys[] { kKey };
-                    errorMessage = "";
+                    if (stringToKey(keyString, out Keyboard.Keys key))
+                    {
+                        keysList.Add(key);
+                    }
+                    else
+                    {
+                        errorMessage = "Key string \"" + keyString + "\" doesn't exist";
+                        keysArray = null;
+
+                        return false;
+                    }
+                }
+
+                keysArray = keysList.ToArray();
+
+                return true;
+            }
+            else
+            {
+                if (stringToKey(keysString, out Keyboard.Keys key))
+                {
+                    keysArray = new Keyboard.Keys[] { key };
+                    
                     return true;
                 }
                 else
                 {
-                    errorMessage = "Key string \"" + key + "\" doesn't exist";
-                    keysArr = null;
+                    errorMessage = "Key string \"" + keysString + "\" doesn't exist";
+                    keysArray = null;
+
                     return false;
                 }
             }
         }
 
-        internal static string keysToString(params Keys[] keysArr)
+        internal static bool stringArrayToKeysArray(string[] stringArray, out Keyboard.Keys[] keysArray, out string errorMessage)
         {
-            if (keysArr == null) return "";
-            string temp = "";
-            int kLen = keysArr.Length;
+            errorMessage = "";
 
-            for (int i = 0; i < kLen; i++)
-            {
-                temp += keysArr[i].ToString() + (i == kLen - 1 ? "" : "+");
+            if (stringArray == null) {
+                keysArray = new Keyboard.Keys[] { 0 };
+
+                return true;
             }
 
-            return temp;
+            var keysList = new List<Keyboard.Keys>();
+
+            foreach (string keyString in stringArray)
+            {
+                if (stringToKey(keyString, out Keyboard.Keys key))
+                {
+                    keysList.Add(key);
+                }
+                else
+                {
+                    errorMessage = "Key string \"" + keyString + "\" doesn't exist";
+                    keysArray = null;
+
+                    return false;
+                }
+            }
+
+            keysArray = keysList.ToArray();
+
+            return true;
         }
 
-        internal static bool fileLocationsArrayFromString(string fileLocationsString, out string[] fileLocations, out string errorMessage)
+        internal static bool stringToFileLocationsArray(string fileLocationsString, out string[] fileLocations, out string errorMessage)
         {
+            errorMessage = "";
+
             if (fileLocationsString.Contains(";"))
             {
                 string[] sLocations = fileLocationsString.Split(';');
@@ -164,7 +208,6 @@ namespace JNSoundboard
                 }
 
                 fileLocations = lLocations.ToArray();
-                errorMessage = "";
                 return true;
             }
             else
@@ -172,7 +215,6 @@ namespace JNSoundboard
                 if (File.Exists(fileLocationsString))
                 {
                     fileLocations = new string[] { fileLocationsString };
-                    errorMessage = "";
                     return true;
                 }
                 else

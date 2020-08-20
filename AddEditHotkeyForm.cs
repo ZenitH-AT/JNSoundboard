@@ -85,7 +85,7 @@ namespace JNSoundboard
 
             if (!SettingsForm.addingEditingLoadXMLFile)
             {
-                if (Helper.fileLocationsArrayFromString(tbLocation.Text, out soundLocations, out errorMessage))
+                if (Helper.stringToFileLocationsArray(tbLocation.Text, out soundLocations, out errorMessage))
                 {
                     if (soundLocations.Any(x => string.IsNullOrWhiteSpace(x) || !File.Exists(x)))
                     {
@@ -104,7 +104,7 @@ namespace JNSoundboard
                 }
             }
 
-            if (!Helper.keysArrayFromString(tbKeys.Text, out Keys[] keysArray, out _)) keysArray = new Keys[] { };
+            if (!Helper.stringToKeysArray(tbKeys.Text, out Keyboard.Keys[] keysArray, out _)) keysArray = new Keyboard.Keys[] { };
 
             if (SettingsForm.addingEditingLoadXMLFile)
             {

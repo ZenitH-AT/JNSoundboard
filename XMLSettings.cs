@@ -9,7 +9,7 @@ namespace JNSoundboard
 {
     public class XMLSettings
     {
-        readonly static SoundboardSettings DEFAULT_SOUNDBOARD_SETTINGS = new SoundboardSettings(new Keys[] { }, new LoadXMLFile[] { new LoadXMLFile(new Keys[] { }, "") }, false, false, true, true, true, 1, false, new Keys { }, "", "", "", "", "");
+        readonly static SoundboardSettings DEFAULT_SOUNDBOARD_SETTINGS = new SoundboardSettings(new Keyboard.Keys[] { }, new LoadXMLFile[] { new LoadXMLFile(new Keyboard.Keys[] { }, "") }, false, false, true, true, true, 1, false, new Keyboard.Keys { }, "", "", "", "", "");
 
         internal static SoundboardSettings soundboardSettings = new SoundboardSettings();
 
@@ -17,14 +17,14 @@ namespace JNSoundboard
         #region Keys and sounds settings
         public class SoundHotkey
         {
-            public Keys[] Keys;
+            public Keyboard.Keys[] Keys;
             public float SoundVolume;
             public string WindowTitle;
             public string[] SoundLocations;
 
             public SoundHotkey() { }
 
-            public SoundHotkey(Keys[] keys, float soundVolume, string windowTitle, string[] soundLocations)
+            public SoundHotkey(Keyboard.Keys[] keys, float soundVolume, string windowTitle, string[] soundLocations)
             {
                 Keys = keys;
                 SoundVolume = soundVolume;
@@ -50,12 +50,12 @@ namespace JNSoundboard
         #region Soundboard settings
         public class LoadXMLFile
         {
-            public Keys[] Keys;
+            public Keyboard.Keys[] Keys;
             public string XMLLocation;
 
             public LoadXMLFile() { }
 
-            public LoadXMLFile(Keys[] keys, string xmlLocation)
+            public LoadXMLFile(Keyboard.Keys[] keys, string xmlLocation)
             {
                 Keys = keys;
                 XMLLocation = xmlLocation;
@@ -65,8 +65,8 @@ namespace JNSoundboard
         [Serializable]
         public class SoundboardSettings
         {
-            public Keys AutoPushToTalkKey;
-            public Keys[] StopSoundKeys;
+            public Keyboard.Keys AutoPushToTalkKey;
+            public Keyboard.Keys[] StopSoundKeys;
             public LoadXMLFile[] LoadXMLFiles;
             public bool StartWithWindows, StartMinimised, MinimiseToTray, EnableHotkeys, EnableLoopback, EnableAutoPushToTalk;
             public string AutoPushToTalkWindow, LastPlaybackDevice, LastPlaybackDevice2, LastLoopbackDevice, LastXMLFile;
@@ -74,8 +74,8 @@ namespace JNSoundboard
 
             public SoundboardSettings() { }
 
-            public SoundboardSettings(Keys[] stopSoundKeys, LoadXMLFile[] loadXMLFiles, bool startWithWindows, bool startMinimised, bool minimiseToTray, bool enableHotkeys, bool enableLoopback, float soundVolume,
-                bool enableAutoPushToTalk, Keys autoPushToTalkKey, string autoPushToTalkWindow, string lastPlaybackDevice, string lastPlaybackDevice2, string lastLoopbackDevice, string lastXMLFile)
+            public SoundboardSettings(Keyboard.Keys[] stopSoundKeys, LoadXMLFile[] loadXMLFiles, bool startWithWindows, bool startMinimised, bool minimiseToTray, bool enableHotkeys, bool enableLoopback, float soundVolume,
+                bool enableAutoPushToTalk, Keyboard.Keys autoPushToTalkKey, string autoPushToTalkWindow, string lastPlaybackDevice, string lastPlaybackDevice2, string lastLoopbackDevice, string lastXMLFile)
             {
                 StopSoundKeys = stopSoundKeys;
                 LoadXMLFiles = loadXMLFiles;
@@ -166,7 +166,7 @@ namespace JNSoundboard
 
                     if (settings.StopSoundKeys == null)
                     {
-                        settings.StopSoundKeys = new Keys[] { };
+                        settings.StopSoundKeys = new Keyboard.Keys[] { };
                         settingsInvalid = true;
                     }
 

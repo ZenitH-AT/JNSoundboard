@@ -37,13 +37,13 @@ In Windows, a playback device is normally a set of speakers or headphones, but i
 
 ## Screenshots: 
 
-![Main window](https://i.ibb.co/m81hZPG/main-window.jpg)
+![Main window](https://ibb.co/sHksxX2)
 
-![Add/edit sound window](https://i.ibb.co/84pQ7WW/add-edit-sound-window.jpg)
+![Add/edit sound window](https://ibb.co/3YqPCDD)
 
-![Settings window](https://i.ibb.co/q02vmdZ/settings-window.jpg)
+![Settings window](https://ibb.co/dbHRkrh)
 
-![Text-to-speech window](https://i.ibb.co/x7XXx8R/text-to-speech-window.jpg)
+![Text-to-speech window](https://ibb.co/qr77TFP)
 
 
 ## EmbarassingUsername's changes:
@@ -82,6 +82,7 @@ In Windows, a playback device is normally a set of speakers or headphones, but i
 * XML saving now uses a timer to prevent file in use errors when saving settings (allows for more settings to be saved and push to talk hotkey timer to be reduced)
 * Improved the responsiveness of key fields without causing clicking the field to set the key (timer interval is temporarily lowered after first timer tick until leaving the field)
 * All keys fields no longer show context menus to make setting a key as right click easier (ShortcutsEnabled false).
+* Reimplemented the Keys enum to include definitions for every key possible. LuaMacros users rejoice!
 * Centralised redundant code in various areas (e.g. window listing and key combination code).
 * Adjusted UI sizing, padding, tab stops and so on.
 * Adjusted/added some tooltips.

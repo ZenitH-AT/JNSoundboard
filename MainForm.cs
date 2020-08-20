@@ -100,7 +100,7 @@ namespace JNSoundboard
 
         internal List<XMLSettings.SoundHotkey> soundHotkeys = new List<XMLSettings.SoundHotkey>();
 
-        Keys pushToTalkKey;
+        Keyboard.Keys pushToTalkKey;
 
         string xmlLocation;
 
@@ -494,7 +494,7 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
                             errorMessage += "Entry #" + (i + 1).ToString() + " has an error: " + tempErr + "\r\n";
                         }
 
-                        string keys = (kLength < 1 ? "" : Helper.keysToString(s.SoundHotkeys[i].Keys));
+                        string keys = (kLength < 1 ? "" : Helper.keysArrayToString(s.SoundHotkeys[i].Keys));
 
                         if (keys != "" && items.Count > 0 && items[items.Count - 1].Text == keys && !sameKeys.Contains(keys))
                         {
@@ -571,7 +571,7 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
                 if (x.Keys == null && y.Keys == null) return 0;
                 else if (x.Keys == null) return -1;
                 else if (y.Keys == null) return 1;
-                else return Helper.keysToString(x.Keys).CompareTo(Helper.keysToString(y.Keys));
+                else return Helper.keysArrayToString(x.Keys).CompareTo(Helper.keysArrayToString(y.Keys));
             });
 
             lvKeySounds.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -588,7 +588,7 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
 
                 form.editStrings = new string[4];
 
-                form.editStrings[0] = Helper.keysToString(soundHotkeys[selectedIndex].Keys);
+                form.editStrings[0] = Helper.keysArrayToString(soundHotkeys[selectedIndex].Keys);
                 form.editStrings[1] = soundHotkeys[selectedIndex].WindowTitle;
                 form.editStrings[2] = Helper.fileLocationsArrayToString(soundHotkeys[selectedIndex].SoundLocations);
                 form.editVolume = soundHotkeys[selectedIndex].SoundVolume;
@@ -756,7 +756,7 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
         }
 
 
-        Keys[] keysJustPressed = null;
+        Keyboard.Keys[] keysJustPressed = null;
         bool showingMsgBox = false;
         int lastIndex = -1;
         private void mainTimer_Tick(object sender, EventArgs e)
@@ -1072,18 +1072,18 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
         {
             pushToTalkKeyTimer.Interval = 10; //lowering the interval to avoid missing key presses (e.g. when an input is corrected)
 
-            if (Keyboard.IsKeyDown(Keys.Escape))
+            if (Keyboard.IsKeyDown(Keyboard.Keys.Escape))
             {
                 tbPushToTalkKey.Text = "";
                 pushToTalkKey = default;
             }
             else
             {
-                foreach (Keys key in Enum.GetValues(typeof(Keys)))
+                foreach (Keyboard.Keys key in Enum.GetValues(typeof(Keyboard.Keys)))
                 {
                     if (Keyboard.IsKeyDown(key))
                     {
-                        tbPushToTalkKey.Text = Helper.keysToString(key);
+                        tbPushToTalkKey.Text = key.ToString();
                         pushToTalkKey = key;
 
                         break;
@@ -1129,7 +1129,7 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
         {
             tbPushToTalkKey.Text = "";
 
-            XMLSettings.soundboardSettings.AutoPushToTalkKey = default(Keys);
+            XMLSettings.soundboardSettings.AutoPushToTalkKey = default(Keyboard.Keys);
             saveSettings();
         }
 

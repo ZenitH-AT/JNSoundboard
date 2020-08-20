@@ -38,7 +38,7 @@ namespace JNSoundboard
                 lvKeysLocations.Items.Add(item);
             }
 
-            tbStopSoundKeys.Text = Helper.keysToString(XMLSettings.soundboardSettings.StopSoundKeys);
+            tbStopSoundKeys.Text = Helper.keysArrayToString(XMLSettings.soundboardSettings.StopSoundKeys);
 
             cbStartWithWindows.Checked = XMLSettings.soundboardSettings.StartWithWindows;
 
@@ -87,7 +87,7 @@ namespace JNSoundboard
         
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (!Helper.keysArrayFromString(tbStopSoundKeys.Text, out Keys[] keysArray, out _)) keysArray = new Keys[] { };
+            if (!Helper.stringToKeysArray(tbStopSoundKeys.Text, out Keyboard.Keys[] keysArray, out _)) keysArray = new Keyboard.Keys[] { };
 
             if (loadXMLFilesList.Count == 0 || loadXMLFilesList.All(x => x.Keys.Length > 0 && !string.IsNullOrWhiteSpace(x.XMLLocation) && File.Exists(x.XMLLocation)))
             {
