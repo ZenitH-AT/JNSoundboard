@@ -119,8 +119,6 @@ namespace JNSoundboard
                 {
                     if (IsKeyDown(key))
                     {
-                        MessageBox.Show(""+(int)key);
-
                         amountPressed++;
                         pressedKeys.Add(key);
                     }
