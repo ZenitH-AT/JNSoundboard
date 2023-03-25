@@ -46,25 +46,28 @@
             this.clearHotkey = new System.Windows.Forms.Button();
             this.cbStartWithWindows = new System.Windows.Forms.CheckBox();
             this.cbStartMinimised = new System.Windows.Forms.CheckBox();
+            this.cbAllowOverlap = new System.Windows.Forms.CheckBox();
             this.gbKeysLocations.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(131, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Stop all sounds keys";
             // 
             // tbStopSoundKeys
             // 
-            this.tbStopSoundKeys.Location = new System.Drawing.Point(12, 25);
+            this.tbStopSoundKeys.Location = new System.Drawing.Point(16, 31);
+            this.tbStopSoundKeys.Margin = new System.Windows.Forms.Padding(4);
             this.tbStopSoundKeys.Name = "tbStopSoundKeys";
             this.tbStopSoundKeys.ReadOnly = true;
             this.tbStopSoundKeys.ShortcutsEnabled = false;
-            this.tbStopSoundKeys.Size = new System.Drawing.Size(213, 20);
+            this.tbStopSoundKeys.Size = new System.Drawing.Size(283, 22);
             this.tbStopSoundKeys.TabIndex = 0;
             this.tbStopSoundKeys.Enter += new System.EventHandler(this.tbStopSoundKeys_Enter);
             this.tbStopSoundKeys.Leave += new System.EventHandler(this.tbStopSoundKeys_Leave);
@@ -81,11 +84,12 @@
             this.lvKeysLocations.FullRowSelect = true;
             this.lvKeysLocations.GridLines = true;
             this.lvKeysLocations.HideSelection = false;
-            this.lvKeysLocations.Location = new System.Drawing.Point(6, 19);
+            this.lvKeysLocations.Location = new System.Drawing.Point(8, 23);
+            this.lvKeysLocations.Margin = new System.Windows.Forms.Padding(4);
             this.lvKeysLocations.MultiSelect = false;
             this.lvKeysLocations.Name = "lvKeysLocations";
             this.lvKeysLocations.ShowItemToolTips = true;
-            this.lvKeysLocations.Size = new System.Drawing.Size(420, 128);
+            this.lvKeysLocations.Size = new System.Drawing.Size(559, 143);
             this.lvKeysLocations.TabIndex = 3;
             this.lvKeysLocations.UseCompatibleStateImageBehavior = false;
             this.lvKeysLocations.View = System.Windows.Forms.View.Details;
@@ -104,10 +108,10 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(288, 319);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnOK.Location = new System.Drawing.Point(384, 439);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(100, 28);
             this.btnOK.TabIndex = 10;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -116,9 +120,10 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(6, 153);
+            this.btnAdd.Location = new System.Drawing.Point(8, 174);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -127,9 +132,10 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(87, 153);
+            this.btnEdit.Location = new System.Drawing.Point(116, 174);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(100, 28);
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -138,9 +144,10 @@
             // btnRemove
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemove.Location = new System.Drawing.Point(168, 153);
+            this.btnRemove.Location = new System.Drawing.Point(224, 174);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(100, 28);
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -150,10 +157,10 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(369, 319);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnCancel.Location = new System.Drawing.Point(492, 439);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -172,10 +179,11 @@
             this.gbKeysLocations.Controls.Add(this.btnAdd);
             this.gbKeysLocations.Controls.Add(this.btnRemove);
             this.gbKeysLocations.Controls.Add(this.btnEdit);
-            this.gbKeysLocations.Location = new System.Drawing.Point(12, 53);
-            this.gbKeysLocations.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.gbKeysLocations.Location = new System.Drawing.Point(16, 65);
+            this.gbKeysLocations.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.gbKeysLocations.Name = "gbKeysLocations";
-            this.gbKeysLocations.Size = new System.Drawing.Size(432, 182);
+            this.gbKeysLocations.Padding = new System.Windows.Forms.Padding(4);
+            this.gbKeysLocations.Size = new System.Drawing.Size(576, 240);
             this.gbKeysLocations.TabIndex = 2;
             this.gbKeysLocations.TabStop = false;
             this.gbKeysLocations.Text = "Load XML file with keys";
@@ -184,9 +192,10 @@
             // 
             this.cbMinimiseToTray.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbMinimiseToTray.AutoSize = true;
-            this.cbMinimiseToTray.Location = new System.Drawing.Point(12, 289);
+            this.cbMinimiseToTray.Location = new System.Drawing.Point(16, 372);
+            this.cbMinimiseToTray.Margin = new System.Windows.Forms.Padding(4);
             this.cbMinimiseToTray.Name = "cbMinimiseToTray";
-            this.cbMinimiseToTray.Size = new System.Drawing.Size(214, 17);
+            this.cbMinimiseToTray.Size = new System.Drawing.Size(267, 20);
             this.cbMinimiseToTray.TabIndex = 9;
             this.cbMinimiseToTray.Text = "Send application to tray when minimised";
             this.cbMinimiseToTray.UseVisualStyleBackColor = true;
@@ -195,9 +204,10 @@
             // 
             this.clearHotkey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearHotkey.ForeColor = System.Drawing.Color.Red;
-            this.clearHotkey.Location = new System.Drawing.Point(231, 24);
+            this.clearHotkey.Location = new System.Drawing.Point(308, 30);
+            this.clearHotkey.Margin = new System.Windows.Forms.Padding(4);
             this.clearHotkey.Name = "clearHotkey";
-            this.clearHotkey.Size = new System.Drawing.Size(22, 22);
+            this.clearHotkey.Size = new System.Drawing.Size(29, 27);
             this.clearHotkey.TabIndex = 1;
             this.clearHotkey.Text = "X";
             this.clearHotkey.UseVisualStyleBackColor = true;
@@ -207,9 +217,10 @@
             // 
             this.cbStartWithWindows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbStartWithWindows.AutoSize = true;
-            this.cbStartWithWindows.Location = new System.Drawing.Point(12, 266);
+            this.cbStartWithWindows.Location = new System.Drawing.Point(16, 343);
+            this.cbStartWithWindows.Margin = new System.Windows.Forms.Padding(4);
             this.cbStartWithWindows.Name = "cbStartWithWindows";
-            this.cbStartWithWindows.Size = new System.Drawing.Size(171, 17);
+            this.cbStartWithWindows.Size = new System.Drawing.Size(208, 20);
             this.cbStartWithWindows.TabIndex = 8;
             this.cbStartWithWindows.Text = "Start application with Windows";
             this.cbStartWithWindows.UseVisualStyleBackColor = true;
@@ -218,20 +229,33 @@
             // 
             this.cbStartMinimised.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbStartMinimised.AutoSize = true;
-            this.cbStartMinimised.Location = new System.Drawing.Point(12, 243);
-            this.cbStartMinimised.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.cbStartMinimised.Location = new System.Drawing.Point(16, 315);
+            this.cbStartMinimised.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.cbStartMinimised.Name = "cbStartMinimised";
-            this.cbStartMinimised.Size = new System.Drawing.Size(150, 17);
+            this.cbStartMinimised.Size = new System.Drawing.Size(189, 20);
             this.cbStartMinimised.TabIndex = 7;
             this.cbStartMinimised.Text = "Start application minimised";
             this.cbStartMinimised.UseVisualStyleBackColor = true;
             // 
+            // cbAllowOverlap
+            // 
+            this.cbAllowOverlap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbAllowOverlap.AutoSize = true;
+            this.cbAllowOverlap.Location = new System.Drawing.Point(16, 400);
+            this.cbAllowOverlap.Margin = new System.Windows.Forms.Padding(4);
+            this.cbAllowOverlap.Name = "cbAllowOverlap";
+            this.cbAllowOverlap.Size = new System.Drawing.Size(220, 20);
+            this.cbAllowOverlap.TabIndex = 12;
+            this.cbAllowOverlap.Text = "Allow multiple sounds to overlap";
+            this.cbAllowOverlap.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 354);
+            this.ClientSize = new System.Drawing.Size(608, 482);
+            this.Controls.Add(this.cbAllowOverlap);
             this.Controls.Add(this.cbStartMinimised);
             this.Controls.Add(this.cbStartWithWindows);
             this.Controls.Add(this.clearHotkey);
@@ -242,8 +266,9 @@
             this.Controls.Add(this.tbStopSoundKeys);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(472, 393);
+            this.MinimumSize = new System.Drawing.Size(623, 473);
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Soundboard Settings";
@@ -271,5 +296,6 @@
         private System.Windows.Forms.Button clearHotkey;
         private System.Windows.Forms.CheckBox cbStartWithWindows;
         private System.Windows.Forms.CheckBox cbStartMinimised;
+        private System.Windows.Forms.CheckBox cbAllowOverlap;
     }
 }

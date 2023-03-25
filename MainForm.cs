@@ -429,7 +429,10 @@ Doesn't affect sounds with custom volumes or that are currently playing.";
 
         private void playSound(string file, float soundVolume)
         {
-            stopPlayback();
+            if (!XMLSettings.soundboardSettings.AllowOverlap)
+            {
+                stopPlayback();
+            }
 
             try
             {
