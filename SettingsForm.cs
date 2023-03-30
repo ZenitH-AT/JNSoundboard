@@ -45,6 +45,8 @@ namespace JNSoundboard
             cbStartMinimised.Checked = XMLSettings.soundboardSettings.StartMinimised;
 
             cbMinimiseToTray.Checked = XMLSettings.soundboardSettings.MinimiseToTray;
+
+            cbAllowOverlap.Checked = XMLSettings.soundboardSettings.AllowOverlap;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -101,6 +103,8 @@ namespace JNSoundboard
                 XMLSettings.soundboardSettings.StartMinimised = cbStartMinimised.Checked;
 
                 XMLSettings.soundboardSettings.MinimiseToTray = cbMinimiseToTray.Checked;
+
+                XMLSettings.soundboardSettings.AllowOverlap = cbAllowOverlap.Checked;
 
                 XMLSettings.SaveSoundboardSettingsXML();
 

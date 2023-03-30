@@ -9,7 +9,7 @@ namespace JNSoundboard
 {
     public class XMLSettings
     {
-        readonly static SoundboardSettings DEFAULT_SOUNDBOARD_SETTINGS = new SoundboardSettings(new Keyboard.Keys[] { }, new LoadXMLFile[] { new LoadXMLFile(new Keyboard.Keys[] { }, "") }, false, false, true, true, true, 1, false, new Keyboard.Keys { }, "", "", "", "", "");
+        readonly static SoundboardSettings DEFAULT_SOUNDBOARD_SETTINGS = new SoundboardSettings(new Keyboard.Keys[] { }, new LoadXMLFile[] { new LoadXMLFile(new Keyboard.Keys[] { }, "") }, false, false, true, true, true, 1, false, new Keyboard.Keys { }, "", "", "", "", "", false);
 
         internal static SoundboardSettings soundboardSettings = new SoundboardSettings();
 
@@ -68,14 +68,14 @@ namespace JNSoundboard
             public Keyboard.Keys AutoPushToTalkKey;
             public Keyboard.Keys[] StopSoundKeys;
             public LoadXMLFile[] LoadXMLFiles;
-            public bool StartWithWindows, StartMinimised, MinimiseToTray, EnableHotkeys, EnableLoopback, EnableAutoPushToTalk;
+            public bool StartWithWindows, StartMinimised, MinimiseToTray, EnableHotkeys, EnableLoopback, EnableAutoPushToTalk, AllowOverlap;
             public string AutoPushToTalkWindow, LastPlaybackDevice, LastPlaybackDevice2, LastLoopbackDevice, LastXMLFile;
             public float SoundVolume;
 
             public SoundboardSettings() { }
 
             public SoundboardSettings(Keyboard.Keys[] stopSoundKeys, LoadXMLFile[] loadXMLFiles, bool startWithWindows, bool startMinimised, bool minimiseToTray, bool enableHotkeys, bool enableLoopback, float soundVolume,
-                bool enableAutoPushToTalk, Keyboard.Keys autoPushToTalkKey, string autoPushToTalkWindow, string lastPlaybackDevice, string lastPlaybackDevice2, string lastLoopbackDevice, string lastXMLFile)
+                bool enableAutoPushToTalk, Keyboard.Keys autoPushToTalkKey, string autoPushToTalkWindow, string lastPlaybackDevice, string lastPlaybackDevice2, string lastLoopbackDevice, string lastXMLFile, bool allowOverlap)
             {
                 StopSoundKeys = stopSoundKeys;
                 LoadXMLFiles = loadXMLFiles;
@@ -92,6 +92,7 @@ namespace JNSoundboard
                 LastPlaybackDevice2 = lastPlaybackDevice2;
                 LastLoopbackDevice = lastLoopbackDevice;
                 LastXMLFile = lastXMLFile;
+                AllowOverlap = allowOverlap;
             }
         }
         #endregion
